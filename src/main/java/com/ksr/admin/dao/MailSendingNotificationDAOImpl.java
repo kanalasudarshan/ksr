@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 public class MailSendingNotificationDAOImpl extends BaseDAOImpl implements MailSendingNotificationDAO {
 
 	
-	public List<Object> getUserMailDetails(){
+	public List<Object> getUserMailDetails(){	
 		
-		return List;
+		return selectHQLQuery("from UserDTO");
 	}
 
 }

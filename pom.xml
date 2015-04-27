@@ -9,13 +9,30 @@
 <properties>
     <org.springframework.version>4.0.5.RELEASE</org.springframework.version>
     <org.springframework.security.version>3.2.5.RELEASE</org.springframework.security.version>
+	<spring.batch.version>2.2.0.RELEASE</spring.batch.version>
 </properties>
   
   
   
  <dependencies>
  
- 
+	<dependency>
+		<groupId>org.springframework.batch</groupId>
+		<artifactId>spring-batch-core</artifactId>
+		<version>${spring.batch.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.batch</groupId>
+		<artifactId>spring-batch-infrastructure</artifactId>
+		<version>${spring.batch.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		<version>1.2.3.RELEASE</version>
+	</dependency>
 
  
   	<dependency>

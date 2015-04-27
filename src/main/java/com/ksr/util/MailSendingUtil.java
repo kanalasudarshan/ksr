@@ -20,7 +20,7 @@ public class MailSendingUtil {
 		try{		
 			
 			SimpleMailMessage email = new SimpleMailMessage();
-			//email.setFrom(messageDTO.getSendTo());
+			email.setFrom("sudarshanreddykanala@mail.com");
 	        email.setTo(messageDTO.getSendTo());
 	        email.setSubject(messageDTO.getSubject());
 	        email.setText(messageDTO.getMessage());         
