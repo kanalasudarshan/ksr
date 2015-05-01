@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,7 +27,7 @@ import com.ksr.admin.service.UserService;
 public class UserController {
 
 	@Autowired
-	UserService UserService;
+	UserService userService;
 	
 	@RequestMapping(value ="/userpage", method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
@@ -42,7 +43,7 @@ public class UserController {
 	@RequestMapping(value = "/createuser", method = RequestMethod.GET)
 	public ModelAndView createUser(
 			@Validated @ModelAttribute("UserDTO") UserDTO userDTO,
-			@ModelAttribute("AddressDTO") AddressDTO addressDTO, BindingResult bindingResult,ModelAndView model){
+			@ModelAttribute("AddressDTO") AddressDTO addressDTO, ModelAndView model, BindingResult bindingResult){
 		
 			if (bindingResult.hasErrors()) {           
 				model.setViewName("registration");
@@ -62,7 +63,7 @@ public class UserController {
 			userDTO.setIsActive(1);
 			userDTO.setIsDeleted(0);
 			
-			UserService.createUser(userDTO);		
+			userService.createUser(userDTO);		
 			
 			model.setViewName("login");
 		
@@ -97,6 +98,15 @@ public class UserController {
 		model.setViewName("registration");
  
 		return model;
+ 
+	}
+	
+	@RequestMapping(value = "/getusers", method = RequestMethod.GET)
+	public String getAllUsers(ModelMap model) {		
+		
+		model.addAttribute("items",userService.getAllUsers());	
+ 
+		return "userslist";
  
 	}
 	

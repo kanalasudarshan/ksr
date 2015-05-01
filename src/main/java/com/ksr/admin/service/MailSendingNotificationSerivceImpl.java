@@ -3,7 +3,7 @@ package com.ksr.admin.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
+//import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.ksr.admin.dao.MailSendingNotificationDAO;
@@ -20,7 +20,7 @@ public class MailSendingNotificationSerivceImpl implements MailSendingNotificati
 	MailSendingNotificationDAO mailSendingNotificationDAO;
 	
 	//@Scheduled(cron = "0 0 9-17 * * MON-FRI")
-	@Scheduled(cron = "5 * * * * *")
+	//@Scheduled(cron = "5 * * * * *")
 	public boolean sendMailNotification(){
 		
 		List<Object> userList=mailSendingNotificationDAO.getUserMailDetails();	

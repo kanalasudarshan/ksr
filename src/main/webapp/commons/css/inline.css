@@ -28,7 +28,7 @@
 	padding-left:20px;
 }
 table {
-	border: none;
+	border: none;	
 }
 
 input[type=text],input[type=password]{
@@ -59,6 +59,14 @@ input[type=button]:hover,input[type=submit]:hover {
 	background-color:#0061a7;
 }
 
+select {
+    padding:3px;
+    margin: 0;   
+    border-radius:4px;  
+    width: 200px;
+	height:37px;   
+    border:none;
+   } 
 .login_form_header{
 	font-size: 25px;
 	color:#FFF;
