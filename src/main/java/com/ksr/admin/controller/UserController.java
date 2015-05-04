@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,33 +39,32 @@ public class UserController {
 	}
  
 	@RequestMapping(value = "/createuser", method = RequestMethod.GET)
-	public ModelAndView createUser(
-			@Validated @ModelAttribute("UserDTO") UserDTO userDTO,
-			@ModelAttribute("AddressDTO") AddressDTO addressDTO, ModelAndView model, BindingResult bindingResult){
+	public String createUser(
+			@Valid @ModelAttribute("userDTO") UserDTO userDTO,
+			@Valid @ModelAttribute("addressDTO") AddressDTO addressDTO, BindingResult bindingResult){
 		
 			if (bindingResult.hasErrors()) {           
-				model.setViewName("registration");
-	        }
-			Calendar calendar = Calendar.getInstance();
-			Timestamp time= new Timestamp(calendar.getTime().getTime());
-			
-			addressDTO.setUserDTO(userDTO);	
-			addressDTO.setCreatedDate(time);
-			addressDTO.setMofiedDate(time);
-			addressDTO.setIsActive(1);
-			Set<AddressDTO> data=new HashSet<AddressDTO>();
-			data.add(addressDTO);
-			
-			userDTO.setAddressDTO(data);
-			userDTO.setCreatedDate(time);
-			userDTO.setIsActive(1);
-			userDTO.setIsDeleted(0);
-			
-			userService.createUser(userDTO);		
-			
-			model.setViewName("login");
-		
-		return model;
+				return "registration";
+	        }else{
+	        	
+				Calendar calendar = Calendar.getInstance();
+				Timestamp time= new Timestamp(calendar.getTime().getTime());
+				
+				addressDTO.setUserDTO(userDTO);	
+				addressDTO.setCreatedDate(time);
+				addressDTO.setMofiedDate(time);
+				addressDTO.setIsActive(1);
+				Set<AddressDTO> data=new HashSet<AddressDTO>();
+				data.add(addressDTO);
+				
+				userDTO.setAddressDTO(data);
+				userDTO.setCreatedDate(time);
+				userDTO.setIsActive(1);
+				userDTO.setIsDeleted(0);
+				
+				userService.createUser(userDTO);	
+				return "login";
+	        }	
  
 	}
  

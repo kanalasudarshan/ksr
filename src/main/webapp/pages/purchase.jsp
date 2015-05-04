@@ -9,8 +9,8 @@
 <script src="commons/js/inline.js"></script>
 <script>
 $(document).ready(function(){
-	$('#typeOfPurchase').change(function(){
-		var ptype=$('#typeOfPurchase').val();
+	$('#purchaseTypeId').change(function(){
+		var ptype=$('#purchaseTypeId').val();
 		if(ptype==""){
 			$('#rpayment').hide();
 			$('#pir').hide();
@@ -41,9 +41,9 @@ $(document).ready(function(){
 <form>
 <table width="600">
 <tr>
-	<td>Type of purchase</td>
+	<td>Purchase Type</td>
 	<td>
-		<select name="typeOfPurchase" id="typeOfPurchase">
+		<select name="purchaseTypeId" id="purchaseTypeId">
 			<option value=""> Please select </option>
 			<option value="1">EMI</option>
 			<option value="2">LIC</option>
@@ -54,12 +54,12 @@ $(document).ready(function(){
 </tr>
 <tr>
 	<td>Total purchase amount</td>
-	<td><input type="text" name=totalPurchaseAmount" id="totalPurchaseAmount"/></td>
+	<td><input type="text" name=purhcaseAmount" id="purhcaseAmount"/></td>
 </tr>
 <tr id="rpayment" style="display:none;">
-	<td>Recurrence Payment</td>
+	<td>Payment Recurrence</td>
 	<td>
-		<select  name=RecurrencePayement" id="RecurrencePayement">
+		<select  name=payementRecurrence" id="payementRecurrence">
 			<option value=""> Please select </option>
 			<option value="1">Monthly</option>
 			<option value="2">Quarterly</option>

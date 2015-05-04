@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 @Entity
 @Table(name="b_address")
@@ -21,17 +23,23 @@ public class AddressDTO{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long addressId;
 	@Column(name = "city", unique = true,nullable = false, length = 45)
+	@NotEmpty
 	private String city;
 	@Column(name = "state", unique = true,nullable = false, length = 45)
+	@NotEmpty
 	private String state;
 	@Column(name = "country", unique = true,nullable = false, length = 45)
+	@NotEmpty
 	private String country;
 	@Column(name = "address", unique = true,nullable = false, length = 45)
+	@NotEmpty
 	private String address;
 	@Column(name = "pin_code", unique = true,nullable = false, length = 500)
-	private String pincode;
+	@NotEmpty
+	private long pincode;
 	@Column(name = "phone_number", unique = true,nullable = false, length = 10)
-	private String phoneNumber;
+	@NotEmpty
+	private long phoneNumber;
 	@ManyToOne
 	@JoinColumn(name="user_id")	
 	private UserDTO userDTO;
@@ -73,16 +81,16 @@ public class AddressDTO{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getPincode() {
+	public long getPincode() {
 		return pincode;
 	}
-	public void setPincode(String pincode) {
+	public void setPincode(long pincode) {
 		this.pincode = pincode;
 	}
-	public String getPhoneNumber() {
+	public long getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(String phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public UserDTO getUserDTO() {

@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -24,14 +25,17 @@ public class UserDTO{
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long userId;
+	private long userId;	
+	@NotEmpty
+	@Size(min=5,max=50)
 	@Column(name = "user_name", unique = true,nullable = false, length = 45)
-	@NotEmpty(message = "Please enter your username.")
    	private String userName;	
-	@Column(name = "password", unique = false,nullable = false, length = 45)
-	@NotEmpty(message = "Please enter your password.")
+	@Column
+	@NotEmpty
+	@Size(min=5,max=15)
 	private String password;	
-	@NotEmpty(message = "Please enter your fisrt name.")
+	@NotEmpty
+	@Size(min=5,max=50)
 	@Column(name="first_name",nullable = false)
 	private String firstName;
 	@Column(name="last_name",nullable = false)

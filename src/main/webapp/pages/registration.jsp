@@ -1,4 +1,4 @@
-<%@ taglib uri="http://www.springframework.org/tags/form"  prefix="springForm"%>
+<%@ taglib uri="http://www.springframework.org/tags/form"  prefix="form"%>
 <html>
 <head>
 <title>KSR Home Page</title>
@@ -13,7 +13,16 @@ $(document).ready(function(){
 <body id="index_page_backimg">
 <div class="registration_div">
 <form name="registrationform" action="./createuser.do">
-<springForm:errors path="userName" cssClass="error" />
+
+<form:errors path="userDTO.userName" cssClass="error" />
+<form:errors path="userDTO.firstName" cssClass="error" />
+<form:errors path="addressDTO.city" cssClass="error" />
+<form:errors path="addressDTO.state" cssClass="error" />
+<form:errors path="addressDTO.country" cssClass="error" />
+<form:errors path="addressDTO.address" cssClass="error" />
+<form:errors path="addressDTO.pincode" cssClass="error" />
+<form:errors path="addressDTO.phoneNumber" cssClass="error" />
+
 <table class="register_table" cellspacing="0" cellpadding="0">
 	<tr>
 		<td colspan="4" align="center" class="login_form_header">User Login</td>		
@@ -30,7 +39,7 @@ $(document).ready(function(){
 	<tr>
 		<td>Last Name</td>
 		<td><input type="text" id="lastName" name="lastName"/></td>
-		<td>Gander</td>
+		<td>Gender</td>
 		<td>
 			<input type="radio" id="male" name="gender" value="1"/> Male &nbsp
 			<input type="radio" id="female" name="gender" value="2"/> Female	
@@ -39,7 +48,7 @@ $(document).ready(function(){
 	<tr>
 		<td>Password</td>
 		<td><input type="password" id="password" name="password"/></td>
-		<td>Confrom Password</td>
+		<td>Conform Password</td>
 		<td><input type="password" id="conformpassword" name="conformpassword"/></td>
 	</tr>
 	<tr>

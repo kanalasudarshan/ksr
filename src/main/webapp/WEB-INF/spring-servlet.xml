@@ -52,8 +52,7 @@
     	<property name="locations">
     		<list>	
     			<value>classpath:properties/jdbc.properties</value>
-    			<value>classpath:properties/mail.properties</value> 
-    			<value>classpath:properties/messages.properties</value>   			
+    			<value>classpath:properties/mail.properties</value>     			 			
     		</list>
     	</property>
     	<property name="ignoreUnresolvablePlaceholders" value="true"/>

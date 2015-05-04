@@ -32,9 +32,9 @@
   	</welcome-file-list>
   	
   	
-  	
+<!--   	
   	<error-page>
   		<error-code>400</error-code>
   		<location>/pages/errorpage.jsp</location>
-  	</error-page>
+  	</error-page> -->
 </web-app>
