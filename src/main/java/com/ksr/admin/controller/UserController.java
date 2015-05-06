@@ -40,8 +40,7 @@ public class UserController {
  
 	@RequestMapping(value = "/createuser", method = RequestMethod.GET)
 	public String createUser(
-			@Valid @ModelAttribute("userDTO") UserDTO userDTO,
-			@Valid @ModelAttribute("addressDTO") AddressDTO addressDTO, BindingResult bindingResult){
+			@Valid @ModelAttribute("userDTO") UserDTO userDTO,BindingResult bindingResult){
 		
 			if (bindingResult.hasErrors()) {           
 				return "registration";
@@ -50,14 +49,14 @@ public class UserController {
 				Calendar calendar = Calendar.getInstance();
 				Timestamp time= new Timestamp(calendar.getTime().getTime());
 				
-				addressDTO.setUserDTO(userDTO);	
+				/*addressDTO.setUserDTO(userDTO);	
 				addressDTO.setCreatedDate(time);
 				addressDTO.setMofiedDate(time);
 				addressDTO.setIsActive(1);
 				Set<AddressDTO> data=new HashSet<AddressDTO>();
-				data.add(addressDTO);
+				data.add(addressDTO);*/
 				
-				userDTO.setAddressDTO(data);
+				//userDTO.setAddressDTO(data);
 				userDTO.setCreatedDate(time);
 				userDTO.setIsActive(1);
 				userDTO.setIsDeleted(0);

@@ -26,16 +26,13 @@ public class UserDTO{
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long userId;	
-	@NotEmpty
-	@Size(min=5,max=50)
+	@NotEmpty	
 	@Column(name = "user_name", unique = true,nullable = false, length = 45)
    	private String userName;	
 	@Column
-	@NotEmpty
-	@Size(min=5,max=15)
+	@NotEmpty	
 	private String password;	
-	@NotEmpty
-	@Size(min=5,max=50)
+	@NotEmpty	
 	@Column(name="first_name",nullable = false)
 	private String firstName;
 	@Column(name="last_name",nullable = false)

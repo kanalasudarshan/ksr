@@ -78,3 +78,7 @@ select {
 	color:#E309F2;
 	font-weight: bold;
 }
+
+.error{
+	color:red;
+}
